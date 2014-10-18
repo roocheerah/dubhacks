@@ -64,6 +64,30 @@ function initialize() {
         }
     }
 
+
+    //function that parses the given facebook event info and tries to get out the description of it and the location
+    function parseFacebookData(){
+    	if (this.status == 200) {
+    		var json = JSON.parse(this.responseText);
+    		var eventElm = json.data;
+    		for (var i = 0; i < eventElm.length; i++) {
+    			var name = eventElm[i].name;
+    			var location = eventElm[i].location;
+    			var free = "free";
+    			var eventID = eventElm[i].id;
+    			var wordsInTitle = name.split(" ");
+    			for (var i = 0; i < wordsInTitle.length; i++) {
+    				if (wordsInTitle[i].toLowerCase() === free) {
+    					//do something with this data
+    					//else, ignore the event....
+    				};
+    			};
+
+    		};
+    	};
+    }
+
+
     //add markers for list of existing events
     function addExistingEvents(eventsArray) {
         for (var i = 0; i < eventsArray.length; ++i) {
