@@ -50,6 +50,7 @@ function initialize() {
 
             var closeEvents = [];
 
+            // computes distance from given zipcode to location - if within 3200 meters, shows them
             for (var i = 0; i < exampleEvents.length; ++i) {
                 var existingLatLong = new google.maps.LatLng(exampleEvents[i][1],
                 exampleEvents[i][2]);
